@@ -1,0 +1,862 @@
+{
+    "children": {
+        "node": {
+            "main-menu-bg": {
+                "children": {
+                    "new": [
+                        {
+                            "type": "CCSprite",
+                            "id": "bg",
+                            "attributes": {
+                                "sprite": "assets/bg.png",
+                                "position": {
+                                    "anchor": "center",
+                                    "x": 0,
+                                    "y": 0
+                                },
+                                "scale": 3.7
+                            }
+                        }
+                    ],
+                    "all": {
+                        "attributes": {
+                            "visible": false
+                        }
+                    }
+                }
+            },
+            "main-title": {
+                "attributes": {
+                    "visible": false
+                }
+            },
+            "more-games-menu": {
+                "attributes": {
+                    "visible": false
+                }
+            },
+            "social-media-menu": {
+                "attributes": {
+                    "visible": false
+                }
+            },
+            "main-menu": {
+                "attributes": {
+                    "visible": false
+                }
+            },
+            "profile-menu": {
+                "children":{
+                    "node":{
+                        "profile-button":{
+                            "attributes":{
+                                "visible":false
+                            }
+                        }
+                    }
+                }
+            },
+            "player-username": {
+                "attributes": {
+                    "position": {
+                        "anchor": "top-left",
+                        "x": 110,
+                        "y": -35
+                    },
+                    "scale": 0.6,
+                    "visible": false
+                }
+            },
+            "close-menu": {
+                "attributes": {
+                    "visible": false
+                }
+            },
+            "bottom-menu": {
+                "attributes": {
+                    "visible": true,
+                    "position": {
+                        "anchor": "center-left",
+                        "x": 30,
+                        "y": 0
+                    },
+                    "scale": 0.8,
+                    "content-size": {
+                        "width": 65,
+                        "height": 284.5
+                    },
+                    "layout": {
+                        "axis": "column",
+                        "flip-axis": true
+                    },
+                    "update-layout": "self"
+                }
+            },
+            "right-side-menu": {
+                "attributes": {
+                    "visible": true,
+                    "scale": 0.8,
+                    "position": {
+                        "anchor": "center-right",
+                        "x": -30,
+                        "y": -25
+                    },
+                    "content-size": {
+                        "width": 65,
+                        "height": 284.5
+                    },
+                    "layout": {
+                        "axis": "column"
+                    }
+                }
+            }
+        },
+        "new":[
+            {
+                "type": "CCSprite",
+                "id": "gd-logo",
+                "attributes": {
+                    "sprite-frame": "assets/logo.png",
+                    "scale":2,
+                    "position":{
+                        "anchor":"top-center",
+                        "x":0,
+                        "y":-60
+                    },
+                    "actions":[
+                        {
+                            "type":"Sequence",
+                            "actions":[
+                                {
+                                    "type": "RotateTo",
+                                    "value": 6,
+                                    "duration": 2
+                                },
+                                {
+                                    "type": "ScaleTo",
+                                    "value": 1.9,
+                                    "duration": 2
+                                },
+                                {
+                                    "type": "RotateTo",
+                                    "value": -6,
+                                    "duration": 2
+                                },
+                                {
+                                    "type": "ScaleTo",
+                                    "value": 2.1,
+                                    "duration": 2
+                                }
+                            ],
+                            "repeat":true
+                        }
+                    ]
+                } 
+            },
+            {
+                "type":"CCMenu",
+                "id":"main-menu-terraria",
+                "attributes":{
+                    "ignore-anchor-pos":false,
+                    "content-size":{
+                        "width":100,
+                        "height":130
+                    },
+                    "position":{
+                        "anchor":"center",
+                        "x":0,
+                        "y":-30
+                    }
+                },
+                "children":{
+                    "new":[
+                        {
+                            "type":"CCMenuItemSpriteExtra",
+                            "id":"empty",
+                            "attributes":{
+                                "sprite":"assets/empty.png",
+                                "scale":2.7,
+                                "base-scale":2.7,
+                                "position":{
+                                    "anchor":"top-center",
+                                    "x":0,
+                                    "y":0
+                                }
+                            },
+                            "children":{
+                                "new":[
+                                    {
+                                        "type":"CCLabelBMFont",
+                                        "id":"play-button-terraria",
+                                        "attributes":{
+                                            "font":"gjFont05.fnt",
+                                            "scale":0.2,
+                                            "text":"Single Player",
+                                            "position":{
+                                                "anchor":"center",
+                                                "x":0,
+                                                "y":0
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "event":{
+                                "on-hover":{
+                                    "attributes":{
+                                        "sound":"assets/hover.ogg",
+                                        "color":{
+                                            "r":255,
+                                            "g":225,
+                                            "b":0
+                                        },
+                                        "actions":[
+                                            {
+                                                "type": "ScaleBy",
+                                                "value": 1.3,
+                                                "duration": 0.1
+                                            }
+                                        ]
+                                    }
+                                },
+                                "on-exit":{
+                                    "attributes":{
+                                        "color":{
+                                            "r":255,
+                                            "g":255,
+                                            "b":255
+                                        },
+                                        "actions":[
+                                            {
+                                                "type": "ScaleTo",
+                                                "value": 2.7,
+                                                "duration": 0.1
+                                            }
+                                        ]
+                                    }
+                                },
+                                "on-activate": {
+                                    "attributes": {
+                                        "sound":"assets/click.ogg",
+                                        "callback": {
+                                            "class": "MenuLayer",
+                                            "method": "onPlay"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "type":"CCMenuItemSpriteExtra",
+                            "id":"empty2",
+                            "attributes":{
+                                "sprite":"assets/empty.png",
+                                "scale":2.7,
+                                "base-scale":2.7,
+                                "position":{
+                                    "anchor":"top-center",
+                                    "x":0,
+                                    "y":-20
+                                }
+                            },
+                            "children":{
+                                "new":[
+                                    {
+                                        "type":"CCLabelBMFont",
+                                        "id":"online-button-terraria",
+                                        "attributes":{
+                                            "font":"gjFont05.fnt",
+                                            "scale":0.2,
+                                            "text":"Multiplayer",
+                                            "position":{
+                                                "anchor":"center",
+                                                "x":0,
+                                                "y":0
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "event":{
+                                "on-hover":{
+                                    "attributes":{
+                                        "sound":"assets/hover.ogg",
+                                        "color":{
+                                            "r":255,
+                                            "g":225,
+                                            "b":0
+                                        },
+                                        "actions":[
+                                            {
+                                                "type": "ScaleBy",
+                                                "value": 1.3,
+                                                "duration": 0.1
+                                            }
+                                        ]
+                                    }
+                                },
+                                "on-exit":{
+                                    "attributes":{
+                                        "color":{
+                                            "r":255,
+                                            "g":255,
+                                            "b":255
+                                        },
+                                        "actions":[
+                                            {
+                                                "type": "ScaleTo",
+                                                "value": 2.7,
+                                                "duration": 0.1
+                                            }
+                                        ]
+                                    }
+                                },
+                                "on-activate": {
+                                    "attributes": {
+                                        "sound":"assets/click.ogg",
+                                        "callback": {
+                                            "class": "MenuLayer",
+                                            "method": "onCreator"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "type":"CCMenuItemSpriteExtra",
+                            "id":"empty3",
+                            "attributes":{
+                                "sprite":"assets/empty.png",
+                                "scale":2.7,
+                                "base-scale":2.7,
+                                "position":{
+                                    "anchor":"top-center",
+                                    "x":0,
+                                    "y":-40
+                                }
+                            },
+                            "children":{
+                                "new":[
+                                    {
+                                        "type":"CCLabelBMFont",
+                                        "id":"Search-button-terraria",
+                                        "attributes":{
+                                            "font":"gjFont05.fnt",
+                                            "scale":0.2,
+                                            "text":"Creator",
+                                            "position":{
+                                                "anchor":"center",
+                                                "x":0,
+                                                "y":0
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "event":{
+                                "on-hover":{
+                                    "attributes":{
+                                        "sound":"assets/hover.ogg",
+                                        "color":{
+                                            "r":255,
+                                            "g":225,
+                                            "b":0
+                                        },
+                                        "actions":[
+                                            {
+                                                "type": "ScaleBy",
+                                                "value": 1.3,
+                                                "duration": 0.1
+                                            }
+                                        ]
+                                    }
+                                },
+                                "on-exit":{
+                                    "attributes":{
+                                        "color":{
+                                            "r":255,
+                                            "g":255,
+                                            "b":255
+                                        },
+                                        "actions":[
+                                            {
+                                                "type": "ScaleTo",
+                                                "value": 2.7,
+                                                "duration": 0.1
+                                            }
+                                        ]
+                                    }
+                                },
+                                "on-activate": {
+                                    "attributes": {
+                                        "sound":"assets/click.ogg",
+                                        "callback": {
+                                            "class": "CreatorLayer",
+                                            "method": "onMyLevels"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "type":"CCMenuItemSpriteExtra",
+                            "id":"empty4",
+                            "attributes":{
+                                "sprite":"assets/empty.png",
+                                "scale":2.7,
+                                "base-scale":2.7,
+                                "position":{
+                                    "anchor":"top-center",
+                                    "x":0,
+                                    "y":-60
+                                }
+                            },
+                            "children":{
+                                "new":[
+                                    {
+                                        "type":"CCLabelBMFont",
+                                        "id":"Profile-button-terraria",
+                                        "attributes":{
+                                            "font":"gjFont05.fnt",
+                                            "scale":0.2,
+                                            "text":"Profile",
+                                            "position":{
+                                                "anchor":"center",
+                                                "x":0,
+                                                "y":0
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "event":{
+                                "on-hover":{
+                                    "attributes":{
+                                        "sound":"assets/hover.ogg",
+                                        "color":{
+                                            "r":255,
+                                            "g":225,
+                                            "b":0
+                                        },
+                                        "actions":[
+                                            {
+                                                "type": "ScaleBy",
+                                                "value": 1.3,
+                                                "duration": 0.1
+                                            }
+                                        ]
+                                    }
+                                },
+                                "on-exit":{
+                                    "attributes":{
+                                        "color":{
+                                            "r":255,
+                                            "g":255,
+                                            "b":255
+                                        },
+                                        "actions":[
+                                            {
+                                                "type": "ScaleTo",
+                                                "value": 2.7,
+                                                "duration": 0.1
+                                            }
+                                        ]
+                                    }
+                                },
+                                "on-activate": {
+                                    "attributes": {
+                                        "sound":"assets/click.ogg",
+                                        "callback": {
+                                            "class": "MenuLayer",
+                                            "method": "onMyProfile"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "type":"CCMenuItemSpriteExtra",
+                            "id":"empty5",
+                            "attributes":{
+                                "sprite":"assets/empty.png",
+                                "scale":2.7,
+                                "base-scale":2.7,
+                                "position":{
+                                    "anchor":"top-center",
+                                    "x":0,
+                                    "y":-80
+                                }
+                            },
+                            "children":{
+                                "new":[
+                                    {
+                                        "type":"CCLabelBMFont",
+                                        "id":"Daily-button-terraria",
+                                        "attributes":{
+                                            "font":"gjFont05.fnt",
+                                            "scale":0.2,
+                                            "text":"Daily Chest",
+                                            "position":{
+                                                "anchor":"center",
+                                                "x":0,
+                                                "y":0
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "event":{
+                                "on-hover":{
+                                    "attributes":{
+                                        "sound":"assets/hover.ogg",
+                                        "color":{
+                                            "r":255,
+                                            "g":225,
+                                            "b":0
+                                        },
+                                        "actions":[
+                                            {
+                                                "type": "ScaleBy",
+                                                "value": 1.3,
+                                                "duration": 0.1
+                                            }
+                                        ]
+                                    }
+                                },
+                                "on-exit":{
+                                    "attributes":{
+                                        "color":{
+                                            "r":255,
+                                            "g":255,
+                                            "b":255
+                                        },
+                                        "actions":[
+                                            {
+                                                "type": "ScaleTo",
+                                                "value": 2.7,
+                                                "duration": 0.1
+                                            }
+                                        ]
+                                    }
+                                },
+                                "on-activate": {
+                                    "attributes": {
+                                        "sound":"assets/click.ogg",
+                                        "callback": {
+                                            "class": "MenuLayer",
+                                            "method": "onDaily"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "type":"CCMenuItemSpriteExtra",
+                            "id":"empty6",
+                            "attributes":{
+                                "sprite":"assets/empty.png",
+                                "scale":2.7,
+                                "base-scale":2.7,
+                                "position":{
+                                    "anchor":"top-center",
+                                    "x":0,
+                                    "y":-100
+                                }
+                            },
+                            "children":{
+                                "new":[
+                                    {
+                                        "type":"CCLabelBMFont",
+                                        "id":"Guest-button-terraria",
+                                        "attributes":{
+                                            "font":"gjFont05.fnt",
+                                            "scale":0.2,
+                                            "text":"Guest",
+                                            "position":{
+                                                "anchor":"center",
+                                                "x":0,
+                                                "y":0
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "event":{
+                                "on-hover":{
+                                    "attributes":{
+                                        "sound":"assets/hover.ogg",
+                                        "color":{
+                                            "r":255,
+                                            "g":225,
+                                            "b":0
+                                        },
+                                        "actions":[
+                                            {
+                                                "type": "ScaleBy",
+                                                "value": 1.3,
+                                                "duration": 0.1
+                                            }
+                                        ]
+                                    }
+                                },
+                                "on-exit":{
+                                    "attributes":{
+                                        "color":{
+                                            "r":255,
+                                            "g":255,
+                                            "b":255
+                                        },
+                                        "actions":[
+                                            {
+                                                "type": "ScaleTo",
+                                                "value": 2.7,
+                                                "duration": 0.1
+                                            }
+                                        ]
+                                    }
+                                },
+                                "on-activate": {
+                                    "attributes": {
+                                        "sound":"assets/click.ogg",
+                                        "callback": {
+                                            "class": "CreatorLayer",
+                                            "method": "onChallenge"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "type":"CCMenuItemSpriteExtra",
+                            "id":"empty7",
+                            "attributes":{
+                                "sprite":"assets/empty.png",
+                                "scale":2.7,
+                                "base-scale":2.7,
+                                "position":{
+                                    "anchor":"top-center",
+                                    "x":0,
+                                    "y":-120
+                                }
+                            },
+                            "children":{
+                                "new":[
+                                    {
+                                        "type":"CCLabelBMFont",
+                                        "id":"Avatar-button-terraria",
+                                        "attributes":{
+                                            "font":"gjFont05.fnt",
+                                            "scale":0.2,
+                                            "text":"Avatar",
+                                            "position":{
+                                                "anchor":"center",
+                                                "x":0,
+                                                "y":0
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "event":{
+                                "on-hover":{
+                                    "attributes":{
+                                        "sound":"assets/hover.ogg",
+                                        "color":{
+                                            "r":255,
+                                            "g":225,
+                                            "b":0
+                                        },
+                                        "actions":[
+                                            {
+                                                "type": "ScaleBy",
+                                                "value": 1.3,
+                                                "duration": 0.1
+                                            }
+                                        ]
+                                    }
+                                },
+                                "on-exit":{
+                                    "attributes":{
+                                        "color":{
+                                            "r":255,
+                                            "g":255,
+                                            "b":255
+                                        },
+                                        "actions":[
+                                            {
+                                                "type": "ScaleTo",
+                                                "value": 2.7,
+                                                "duration": 0.1
+                                            }
+                                        ]
+                                    }
+                                },
+                                "on-activate": {
+                                    "attributes": {
+                                        "sound":"assets/click.ogg",
+                                        "callback": {
+                                            "class": "MenuLayer",
+                                            "method": "onGarage"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "type":"CCMenuItemSpriteExtra",
+                            "id":"empty8",
+                            "attributes":{
+                                "sprite":"assets/empty.png",
+                                "scale":2.7,
+                                "base-scale":2.7,
+                                "position":{
+                                    "anchor":"top-center",
+                                    "x":0,
+                                    "y":-140
+                                }
+                            },
+                            "children":{
+                                "new":[
+                                    {
+                                        "type":"CCLabelBMFont",
+                                        "id":"Avatar-button-terraria",
+                                        "attributes":{
+                                            "font":"gjFont05.fnt",
+                                            "scale":0.2,
+                                            "text":"Options",
+                                            "position":{
+                                                "anchor":"center",
+                                                "x":0,
+                                                "y":0
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "event":{
+                                "on-hover":{
+                                    "attributes":{
+                                        "sound":"assets/hover.ogg",
+                                        "color":{
+                                            "r":255,
+                                            "g":225,
+                                            "b":0
+                                        },
+                                        "actions":[
+                                            {
+                                                "type": "ScaleBy",
+                                                "value": 1.3,
+                                                "duration": 0.1
+                                            }
+                                        ]
+                                    }
+                                },
+                                "on-exit":{
+                                    "attributes":{
+                                        "color":{
+                                            "r":255,
+                                            "g":255,
+                                            "b":255
+                                        },
+                                        "actions":[
+                                            {
+                                                "type": "ScaleTo",
+                                                "value": 2.7,
+                                                "duration": 0.1
+                                            }
+                                        ]
+                                    }
+                                },
+                                "on-activate": {
+                                    "attributes": {
+                                        "sound":"assets/click.ogg",
+                                        "callback": {
+                                            "class": "MenuLayer",
+                                            "method": "onOptions"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            "type":"CCMenuItemSpriteExtra",
+                            "id":"empty9",
+                            "attributes":{
+                                "sprite":"assets/empty.png",
+                                "scale":2.7,
+                                "base-scale":2.7,
+                                "position":{
+                                    "anchor":"top-center",
+                                    "x":0,
+                                    "y":-160    
+                                }
+                            },
+                            "children":{
+                                "new":[
+                                    {
+                                        "type":"CCLabelBMFont",
+                                        "id":"Avatar-button-terraria",
+                                        "attributes":{
+                                            "font":"gjFont05.fnt",
+                                            "scale":0.2,
+                                            "text":"Quit",
+                                            "position":{
+                                                "anchor":"center",
+                                                "x":0,
+                                                "y":0
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "event":{
+                                "on-hover":{
+                                    "attributes":{
+                                        "sound":"assets/hover.ogg",
+                                        "color":{
+                                            "r":255,
+                                            "g":225,
+                                            "b":0
+                                        },
+                                        "actions":[
+                                            {
+                                                "type": "ScaleBy",
+                                                "value": 1.3,
+                                                "duration": 0.1
+                                            }
+                                        ]
+                                    }
+                                },
+                                "on-exit":{
+                                    "attributes":{
+                                        "color":{
+                                            "r":255,
+                                            "g":255,
+                                            "b":255
+                                        },
+                                        "actions":[
+                                            {
+                                                "type": "ScaleTo",
+                                                "value": 2.7,
+                                                "duration": 0.1
+                                            }
+                                        ]
+                                    }
+                                },
+                                "on-activate": {
+                                    "attributes": {
+                                        "sound":"assets/click.ogg",
+                                        "callback": {
+                                            "class": "MenuLayer",
+                                            "method": "onQuit"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}
